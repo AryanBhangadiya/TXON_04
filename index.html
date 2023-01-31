@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://kit.fontawesome.com/c9565748fd.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    
+    <section id="home">
+        
+        <front-page>
+            <div class="menu-area">
+                <ul>
+                    <li>MORE
+                        <ul class="dropdown">
+                            <li><a href="#">HOME</a></li>
+                            <li><a href="#about">ABOUT ME</a></li>
+                            <li><a href="#contact">CONTACT</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- <section id="home"> -->
+        
+            <div class="first">
+                <div class="front-content">
+                    <h2>
+                        HELLO FOLKS!
+                    </h2>
+
+                    <h1>
+                        I'm <span class="name">Aryan</span> <span class="name">Bhangadiya</span>.
+                    </h1>
+                    <div class="like">
+                        || FRONT-END DEVELOPER || DATA SCIENTIST || 
+                    </div>
+                </div>
+            </div>
+            
+        </front-page>
+    </section>
+
+    <section id="about">
+        <second-page>
+            <div class="about-page">
+                <div class="about">
+                    ABOUT
+                </div>
+                
+                <div class="you">
+                    You should know me first.
+                </div>
+            
+                <div class="divide">
+                    <div class="left">
+                        <div class="avatar">
+                            <img title="profile" id="image1" src="Images/avatar2.png" onclick="changeImage()">
+                        </div>
+                         <script>
+                            function changeImage() {
+                                let displayImage = document.getElementById("image1");
+                                if(displayImage.src.match("Images/avatar2.png")) {
+                                    displayImage.src = "Images/profileImg.jpeg"
+                                }
+                                else {
+                                    displayImage.src = "Images/avatar2.png"
+                                }
+                            }
+                         </script>    
+                    </div>
+                    <div class="right">
+                        <p>
+                        I am Aryan Bhangadiya a <b>III</b> year B.Tech. student pursuing<br> my education at Shri 
+                        Ramdeobaba College of Engineering and<br> Management, Nagpur. I am a front-end developer and also 
+                        likes<br> to visualize the data using various tools.
+                        </p>
+                    </div>
+                </div>
+            
+                <div class="container">
+                    <div class="container-skills">
+                        <div class="skills">
+                            <h1 class="heading">MY SKILLS</h1>
+                
+                            <li><h3>html</h3>
+                                <span class="bar"><span class="html"></span></span>
+                            </li>
+                            <li><h3>css</h3>
+                                <span class="bar"><span class="css"></span></span>
+                            </li>
+                            <li><h3>javascript</h3>
+                                <span class="bar"><span class="javascript"></span></span>
+                            </li>
+                            <li><h3>java</h3>
+                                <span class="bar"><span class="java"></span></span>
+                            </li>
+                            <li><h3>my sql</h3>
+                                <span class="bar"><span class="mysql"></span></span>
+                            </li>
+                            <li><h3>python</h3>
+                                <span class="bar"><span class="python"></span></span>
+                            </li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </second-page>
+    </section>
+    
+    <section id="contact">
+        <div class="third-page">
+
+            <div id="contact">
+                <div class="container2">
+                    <div class="row">
+                        <div class="contact-left">
+                            <h1 class="sub-title">Contact Me</h1>
+                            <p><i class="fa-sharp fa-solid fa-paper-plane"></i>aryanbhangadia@gmail.com</p>
+                            <p><i class="fa-solid fa-square-phone"></i>1234567890</p>
+                            <div class="social-icons">
+                                <a href="https://www.facebook.com/aryan.bhangadia" title="facebook"><i class="fa-brands fa-facebook"></i></a>
+                                <a href="https://twitter.com/ABhangadia" title="twitter"><i class="fa-brands fa-twitter-square"></i></a>
+                                <a href="https://linkedin.com/in/aryan-bhangadiya-187776210" title="linkedin"><i class="fa-brands fa-linkedin"></i></a>
+                                <a href="https://instagram.com/aryanbhangadia" title="instagram"><i class="fa-brands fa-instagram"></i></a>
+                            </div>
+                            <a href="Images/Aryan's Resume.pdf" download class="btn btn2">Download My Resume</a>
+                        </div>
+                        <div class="contact-right">
+                            <form name="submit-to-google-sheet">
+                                <input type="text" name="Name" placeholder="Your Name" required autocomplete="off">
+                                <input type="email" name="Email" placeholder="Your Email" required autocomplete="off">
+                                <textarea name="Message" rows="6" placeholder="Your Message" autocomplete="off"></textarea>
+                                <button type="submit" class="btn btn2">Submit</button>
+                            </form>
+                            <span id="msg"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                Copyright <i class="fa-regular fa-copyright"></i> Aryan Bhangadiya. 
+            </div>
+            
+        
+        
+            <script>
+                const scriptURL = 'https://script.google.com/macros/s/AKfycbwAcRWL_JVx8A8ITwjYbAcNM4i59-8CDOXBKUrmgTYaZOwJmKikvsNIcYan3lGmZEks1w/exec'
+                const form = document.forms['submit-to-google-sheet']
+                const msg = document.getElementById("msg")
+              
+                form.addEventListener('submit', e => {
+                  e.preventDefault()
+                  fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                    .then(response => {
+                        msg.innerHTML = "Message sent successfully"
+                        setTimeout(function() {
+                            msg.innerHTML = ""
+                        },5000)
+                        form.reset()    
+                    })
+                    .catch(error => console.error('Error!', error.message))
+                })
+            </script>
+    </section>
+
+    
+
+    </div>
+</body>
+</html>
